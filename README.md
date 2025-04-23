@@ -32,3 +32,30 @@ accordingly.
 
 What is the worst-case big $\Theta$ complexity of your implementation? Add your
 answer, including your reasoning, to this markdown file.
+
+The worst case input would be either a graph with no path from source to target, or a graph with many paths almost to the target, but only one path to the target.
+
+1.  starting at the start node, while unvisited nodes remain
+	1.  if current vertex  v  is the end node, return the path. $\Theta(1)$  
+	2. mark v as visited and push it onto the path. $\Theta(1)$
+    3. create an array of the nodes connected to start node. $\Theta(|E|)$
+	4. for each edge  (v,w): This has a complexity of $\Theta(|E|)$ since each edge will be processed once overall
+		1. If not visited, recursively process w. This has a complexity of  $\Theta(|V|)$ since each vertex will be visited at least once.
+	5. if all nodes on a path are visited, backtrack. $\Theta(1)$
+
+
+The runtime equation is:
+
+$T(n) = 1 \cdot (1 + |E| + |E| + |V|) + 1$
+
+$= 2|E| + |V| + 2$
+
+The constant factors are asymptotically insignificant, therefore
+
+$T(n)\in\Theta(|E|+|V|)$
+
+"I certify that I have listed all sources used to complete this exercise,
+including the use of any Large Language Models. All of the work is my own, except
+where stated otherwise. I am aware that plagiarism carries severe penalties and
+that if plagiarism is suspected, charges may be filed against me without prior
+notice."
